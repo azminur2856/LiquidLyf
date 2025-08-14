@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="OtpEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/rounded_edittext_background</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:inputType">number</item>
+    </style>
+</resources>

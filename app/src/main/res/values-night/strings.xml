@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LiquidLyf</string>
+    <string name="give_the_gift_of_life">Give the gift of life</string>
+    <string name="quotation">Your blood donation can save lives. Join us in making a difference.</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="full_name">Full name</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="email_optional">Email (optional)</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="blood_group">Blood group</string>
+    <string name="password">Password</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="create_account">Create account</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign in</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="remember_phone_number">Remember phone number</string>
+    <string name="log_in">Log in</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="send_code">Send Code</string>
+    <string name="resend_code">Resend code</string>
+    <string name="verify_code">Verify Code</string>
+    <string name="set_a_new_password">Set a new password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <!--Blood Groups Array-->
+    <string-array name="blood_groups">
+        <item>Select your blood group</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+    </string-array>
+</resources>
