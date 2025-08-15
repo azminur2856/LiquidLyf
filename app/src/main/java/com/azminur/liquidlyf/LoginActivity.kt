@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
 
         loginButton.setOnClickListener {
             val phoneN = "01234567890"
-            val pass = "123456"
+            val pass = "1"
             if(phone.text.toString() == phoneN && password.text.toString() == pass) {
                 Toast.makeText(this, "Login...", Toast.LENGTH_SHORT).show()
                 progressBar.visibility = View.VISIBLE

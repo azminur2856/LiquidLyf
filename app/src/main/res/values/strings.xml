@@ -44,6 +44,20 @@
     <string name="enter_quantity">Enter quantity</string>
     <string name="submit_request">Submit Request</string>
     <string name="past_requests">Past Requests</string>
+    <string name="azminur_rahman">AZMINUR RAHMAN</string>
+    <string name="contract">22-46588-1@student.aiub.edu\n+880 1234-567890</string>
+    <string name="o_p_blood">O+</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="save">Save</string>
+    <string name="current_password">Current Password</string>
+    <string name="enter_current_password">Enter current password</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="save_changes">Save Changes</string>
     <!--Blood Groups Array-->
     <string-array name="blood_groups">
         <item>Select your blood group</item>

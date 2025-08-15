@@ -28,6 +28,8 @@ class RequestBloodActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var backArrow: ImageView
     private lateinit var submitRequestButton: Button
     private lateinit var bloodGroupSpinner: Spinner
+    private lateinit var progressBar: ProgressBar
+
     private lateinit var map: GoogleMap
     private lateinit var searchView: SearchView
     private lateinit var searchResultsRecyclerView: RecyclerView
@@ -78,6 +80,7 @@ class RequestBloodActivity : AppCompatActivity(), OnMapReadyCallback {
         backArrow = findViewById(R.id.back_arrow)
         submitRequestButton = findViewById(R.id.submit_request_button)
         bloodGroupSpinner = findViewById(R.id.blood_group_spinner)
+        progressBar = findViewById(R.id.progress_bar)
 
         val bloodGroups = resources.getStringArray(R.array.blood_groups)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, bloodGroups)
@@ -91,8 +94,14 @@ class RequestBloodActivity : AppCompatActivity(), OnMapReadyCallback {
         submitRequestButton.setOnClickListener {
             // TODO: Implement logic to handle the blood request submission.
             Toast.makeText(this, "Request submitted!", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, DashboardActivity::class.java)
-            startActivity(intent)
+
+            progressBar.visibility = View.VISIBLE
+
+            android.os.Handler().postDelayed({
+                progressBar.visibility = View.GONE
+                val intent = Intent(this, DashboardActivity::class.java)
+                startActivity(intent)
+            }, 1000)
         }
     }
 

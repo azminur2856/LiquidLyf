@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".RequestBloodActivity">
+    tools:context=".UpdateProfileActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolbar"
@@ -29,7 +29,7 @@
             android:id="@+id/page_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/request_blood"
+            android:text="@string/update_profile"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -50,64 +50,117 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/map"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:layout_width="0dp"
-                android:layout_height="200dp"
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_profile_placeholder"
+                android:background="@drawable/circle_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:context=".RequestBloodActivity"
-                tools:layout="@layout/activity_request_blood" />
+                tools:ignore="ContentDescription" />
 
-            <SearchView
-                android:id="@+id/search_bar"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:queryHint="Search for a hospital"
-                android:iconifiedByDefault="false"
-                android:background="@drawable/rounded_edittext_background"
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/azminur_rahman"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/map" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/search_results_recycler_view"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/contact_info"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/contract"
+                android:textSize="16sp"
+                android:textColor="@color/gray"
+                android:textAlignment="center"
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_bar"
-                tools:listitem="@layout/item_search_result"
-                android:visibility="gone" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_name" />
 
             <TextView
-                android:id="@+id/patient_name_label"
+                android:id="@+id/name_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/patient_name"
+                android:text="@string/name"
                 android:textSize="16sp"
                 android:textColor="@color/black"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="32dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_results_recycler_view"/>
+                app:layout_constraintTop_toBottomOf="@+id/contact_info"/>
 
             <EditText
-                android:id="@+id/patient_name_input"
+                android:id="@+id/name_input"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:hint="@string/enter_patient_name"
+                android:hint="@string/enter_your_full_name"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:background="@drawable/rounded_edittext_background"
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/patient_name_label"
+                app:layout_constraintTop_toBottomOf="@+id/name_label"
                 android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/email_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name_input"/>
+
+            <EditText
+                android:id="@+id/email_input"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:hint="@string/enter_your_email"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/rounded_edittext_background"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_label"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/phone_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_input"/>
+
+            <EditText
+                android:id="@+id/phone_input"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:hint="@string/enter_your_phone_number"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/rounded_edittext_background"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone_label"
+                android:inputType="phone" />
 
             <TextView
                 android:id="@+id/blood_group_label"
@@ -118,56 +171,32 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/patient_name_input"/>
+                app:layout_constraintTop_toBottomOf="@+id/phone_input"/>
 
             <Spinner
                 android:id="@+id/blood_group_spinner"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:background="@drawable/rounded_edittext_background"
                 android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/rounded_edittext_background"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/blood_group_label" />
 
-            <TextView
-                android:id="@+id/quantity_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/quantity"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/blood_group_spinner"/>
-
-            <EditText
-                android:id="@+id/quantity_input"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:hint="@string/enter_quantity"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:background="@drawable/rounded_edittext_background"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/quantity_label"
-                android:inputType="number" />
 
             <Button
-                android:id="@+id/submit_request_button"
+                android:id="@+id/save_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/submit_request"
+                android:text="@string/save"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:backgroundTint="@color/red_button"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/quantity_input"
+                app:layout_constraintTop_toBottomOf="@+id/blood_group_spinner"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
