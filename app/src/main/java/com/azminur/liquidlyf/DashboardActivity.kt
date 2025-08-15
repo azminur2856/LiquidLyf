@@ -1,0 +1,193 @@
+package com.azminur.liquidlyf
+
+import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Switch
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.button.MaterialButton
+
+class DashboardActivity : AppCompatActivity() {
+
+    private lateinit var availabilitySwitch: Switch
+    private lateinit var availabilityText: TextView
+    private lateinit var incomingRequestsRecyclerView: RecyclerView
+    private lateinit var recentActivityRecyclerView: RecyclerView
+
+    private lateinit var requestMaterialButton: MaterialButton
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_dashboard)
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//            insets
+//        }
+
+        availabilitySwitch = findViewById(R.id.availability_switch)
+        availabilityText = findViewById(R.id.availability_text)
+        incomingRequestsRecyclerView = findViewById(R.id.incoming_requests_recycler_view)
+        recentActivityRecyclerView = findViewById(R.id.recent_activity_recycler_view)
+        requestMaterialButton = findViewById(R.id.request_blood_fab)
+
+        setupIncomingRequestsRecyclerView()
+        setupRecentActivityRecyclerView()
+
+        setupAvailabilitySwitch()
+
+        requestMaterialButton.setOnClickListener {
+            val intent = Intent(this, RequestBloodActivity::class.java)
+            startActivity(intent)
+        }
+
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation_bar)
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_dashboard -> {
+                    // Do nothing or handle re-selecting the dashboard
+                    true
+                }
+                R.id.nav_requests -> {
+                    val intent = Intent(this, RegisterActivity::class.java)
+                    startActivity(intent)
+                    Toast.makeText(this, "Requests selected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_profile -> {
+                    Toast.makeText(this, "Profile selected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_settings -> {
+                    Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun setupAvailabilitySwitch() {
+        if (availabilitySwitch.isChecked) {
+            availabilityText.text = "Ready to donate (Available)"
+            availabilityText.setTextColor(getColor(R.color.green_status))
+        } else {
+            availabilityText.text = "Not Ready to donate (Unavailable)"
+            availabilityText.setTextColor(getColor(R.color.red_status))
+        }
+
+        availabilitySwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                availabilityText.setTextColor(getColor(R.color.green_status))
+                availabilityText.text = "Ready to donate (Available)"
+                Toast.makeText(this, "Availability set to Available", Toast.LENGTH_SHORT).show()
+            } else {
+                availabilityText.setTextColor(getColor(R.color.red_status))
+                availabilityText.text = "Not Ready to donate (Unavailable)"
+                Toast.makeText(this, "Availability set to Not Available", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setupIncomingRequestsRecyclerView() {
+        val incomingRequests = listOf(
+            IncomingRequest("Urgent: Blood Type O-", "10 miles away"),
+            IncomingRequest("Urgent: Blood Type A+", "12 miles away")
+        )
+        incomingRequestsRecyclerView.layoutManager = LinearLayoutManager(this)
+        incomingRequestsRecyclerView.adapter = IncomingRequestsAdapter(this, incomingRequests)
+    }
+
+    private fun setupRecentActivityRecyclerView() {
+        val recentActivities = listOf(
+            RecentActivity("Blood Donation", "Donated to local hospital", "2 weeks ago", R.drawable.ic_check_circle),
+            RecentActivity("Blood Request", "Request from local hospital", "1 month ago", R.drawable.ic_request_blood)
+        )
+        recentActivityRecyclerView.layoutManager = LinearLayoutManager(this)
+        recentActivityRecyclerView.adapter = RecentActivityAdapter(recentActivities)
+    }
+}
+
+// Data Classes
+data class IncomingRequest(val title: String, val distance: String)
+data class RecentActivity(val title: String, val subtitle: String, val time: String, val iconResId: Int)
+
+// Adapters
+class IncomingRequestsAdapter(private val context: Context, private val requests: List<IncomingRequest>) :
+    RecyclerView.Adapter<IncomingRequestsAdapter.RequestViewHolder>() {
+
+    class RequestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val profileImage: ImageView = view.findViewById(R.id.request_profile_image)
+        val requestInfo: TextView = view.findViewById(R.id.request_info_text)
+        val actionButton: Button = view.findViewById(R.id.action_button)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RequestViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_incoming_request, parent, false)
+        return RequestViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: RequestViewHolder, position: Int) {
+        val request = requests[position]
+        holder.requestInfo.text = "${request.title}\n${request.distance}"
+
+        holder.actionButton.setOnClickListener {
+            // Show the request details modal window
+            val dialogBuilder = AlertDialog.Builder(context)
+            dialogBuilder.setTitle("Request Details")
+            dialogBuilder.setMessage("Details for ${request.title}")
+            dialogBuilder.setPositiveButton("Accept") { dialog, _ ->
+                Toast.makeText(context, "Accepted request for ${request.title}", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+            dialogBuilder.setNegativeButton("Reject") { dialog, _ ->
+                Toast.makeText(context, "Rejected request for ${request.title}", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+            val dialog = dialogBuilder.create()
+            dialog.show()
+        }
+    }
+
+    override fun getItemCount() = requests.size
+}
+
+class RecentActivityAdapter(private val activities: List<RecentActivity>) :
+    RecyclerView.Adapter<RecentActivityAdapter.ActivityViewHolder>() {
+
+    class ActivityViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val icon: ImageView = view.findViewById(R.id.activity_icon)
+        val info: TextView = view.findViewById(R.id.activity_info)
+        val time: TextView = view.findViewById(R.id.activity_time)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_recent_activity, parent, false)
+        return ActivityViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ActivityViewHolder, position: Int) {
+        val activity = activities[position]
+        holder.icon.setImageResource(activity.iconResId)
+        holder.info.text = "${activity.title}\n${activity.subtitle}"
+        holder.time.text = activity.time
+    }
+
+    override fun getItemCount() = activities.size
+}

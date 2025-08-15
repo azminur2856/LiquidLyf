@@ -4,4 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red_button">#FF5252</color>
     <color name="textColorHint">#9E9E9E</color>
+    <color name="gray">#A9A9A9</color>
+    <color name="red_status">#F44336</color>
+    <color name="green_status">#4CAF50</color>
+    <color name="switch_thumb_color">#FFFFFF</color>
+    <color name="switch_track_color_on">#4CAF50</color>
+    <color name="switch_track_color_off">#CCCCCC</color>
 </resources>
