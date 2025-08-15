@@ -43,6 +43,7 @@
     <string name="quantity">Quantity</string>
     <string name="enter_quantity">Enter quantity</string>
     <string name="submit_request">Submit Request</string>
+    <string name="past_requests">Past Requests</string>
     <!--Blood Groups Array-->
     <string-array name="blood_groups">
         <item>Select your blood group</item>

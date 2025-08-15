@@ -63,9 +63,8 @@ class DashboardActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_requests -> {
-                    val intent = Intent(this, RegisterActivity::class.java)
+                    val intent = Intent(this, RequestsActivity::class.java)
                     startActivity(intent)
-                    Toast.makeText(this, "Requests selected", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_profile -> {

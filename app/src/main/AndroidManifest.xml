@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature
         android:name="android.hardware.location.gps"
         android:required="true" />
@@ -16,9 +17,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LiquidLyf">
+        <activity
+            android:name=".RequestsActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDjy0K8dM_C7mFFVJ2hRlLxM717KjCl48E" />
+
         <activity
             android:name=".RequestBloodActivity"
             android:exported="false" />

@@ -25,6 +25,9 @@ import java.util.*
 
 class RequestBloodActivity : AppCompatActivity(), OnMapReadyCallback {
 
+    private lateinit var backArrow: ImageView
+    private lateinit var submitRequestButton: Button
+    private lateinit var bloodGroupSpinner: Spinner
     private lateinit var map: GoogleMap
     private lateinit var searchView: SearchView
     private lateinit var searchResultsRecyclerView: RecyclerView
@@ -72,10 +75,9 @@ class RequestBloodActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         })
 
-        val backArrow: ImageView = findViewById(R.id.back_arrow)
-        val submitRequestButton: Button = findViewById(R.id.submit_request_button)
-        val bloodGroupSpinner: Spinner = findViewById(R.id.blood_group_spinner)
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation_bar)
+        backArrow = findViewById(R.id.back_arrow)
+        submitRequestButton = findViewById(R.id.submit_request_button)
+        bloodGroupSpinner = findViewById(R.id.blood_group_spinner)
 
         val bloodGroups = resources.getStringArray(R.array.blood_groups)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, bloodGroups)
@@ -91,11 +93,6 @@ class RequestBloodActivity : AppCompatActivity(), OnMapReadyCallback {
             Toast.makeText(this, "Request submitted!", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
-        }
-
-        bottomNavigationView.setOnItemSelectedListener { item ->
-            // (Bottom navigation logic from previous versions)
-            true
         }
     }
 
