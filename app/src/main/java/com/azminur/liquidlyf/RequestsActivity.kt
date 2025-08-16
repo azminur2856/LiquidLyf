@@ -47,6 +47,8 @@ class RequestsActivity : AppCompatActivity() {
         )
         requestsRecyclerView.adapter = RequestsAdapter(requestList)
 
+        bottomNavigationView.selectedItemId = R.id.nav_requests
+
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_dashboard -> {
@@ -64,12 +66,18 @@ class RequestsActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_settings -> {
-                    Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        bottomNavigationView.selectedItemId = R.id.nav_requests
     }
 }
 

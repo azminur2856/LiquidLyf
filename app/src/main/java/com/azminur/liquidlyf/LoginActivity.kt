@@ -61,10 +61,17 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login...", Toast.LENGTH_SHORT).show()
                 progressBar.visibility = View.VISIBLE
 
+                // Save login state
+                val sharedPref = getSharedPreferences("auth_prefs", MODE_PRIVATE)
+                sharedPref.edit()
+                    .putBoolean("is_logged_in", true)
+                    .apply()
+
                 android.os.Handler().postDelayed({
                     progressBar.visibility = View.GONE
-                val intent = Intent(this, DashboardActivity::class.java)
-                startActivity(intent)
+                    val intent = Intent(this, DashboardActivity::class.java)
+                    startActivity(intent)
+                    finish() // Prevent going back to LoginActivity
                 }, 1000)
             }
             else{

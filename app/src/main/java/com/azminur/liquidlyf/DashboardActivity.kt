@@ -29,6 +29,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var recentActivityRecyclerView: RecyclerView
 
     private lateinit var requestMaterialButton: MaterialButton
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +45,8 @@ class DashboardActivity : AppCompatActivity() {
         incomingRequestsRecyclerView = findViewById(R.id.incoming_requests_recycler_view)
         recentActivityRecyclerView = findViewById(R.id.recent_activity_recycler_view)
         requestMaterialButton = findViewById(R.id.request_blood_fab)
+        bottomNavigationView = findViewById(R.id.bottom_navigation_bar)
+
 
         setupIncomingRequestsRecyclerView()
         setupRecentActivityRecyclerView()
@@ -55,7 +58,8 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation_bar)
+        bottomNavigationView.selectedItemId = R.id.nav_dashboard
+
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_dashboard -> {
@@ -73,12 +77,18 @@ class DashboardActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_settings -> {
-                    Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        bottomNavigationView.selectedItemId = R.id.nav_dashboard
     }
 
     private fun setupAvailabilitySwitch() {

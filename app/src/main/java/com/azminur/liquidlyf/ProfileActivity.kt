@@ -45,6 +45,8 @@ class ProfileActivity : AppCompatActivity() {
              startActivity(intent)
         }
 
+        bottomNavigationView.selectedItemId = R.id.nav_profile
+
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_dashboard -> {
@@ -62,11 +64,17 @@ class ProfileActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_settings -> {
-                    // TODO: Navigate to SettingsActivity
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        bottomNavigationView.selectedItemId = R.id.nav_profile
     }
 }
