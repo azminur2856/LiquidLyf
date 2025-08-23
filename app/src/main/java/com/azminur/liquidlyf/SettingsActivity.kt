@@ -12,16 +12,17 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.materialswitch.MaterialSwitch
 
 class SettingsActivity : AppCompatActivity() {
 
     private lateinit var backArrow: ImageView
     private lateinit var languageItem: ConstraintLayout
     private lateinit var themItem: ConstraintLayout
-    private lateinit var pushNotificationItem: ConstraintLayout
-    private lateinit var emailNotificationItem: ConstraintLayout
-    private lateinit var dataSharingItem: ConstraintLayout
-    private lateinit var locationServiceItem: ConstraintLayout
+    private lateinit var pushNotificationSwitch: MaterialSwitch
+    private lateinit var emailNotificationSwitch: MaterialSwitch
+    private lateinit var dataSharingSwitch: MaterialSwitch
+    private lateinit var locationServiceSwitch: MaterialSwitch
     private lateinit var termsOfServiceItem: ConstraintLayout
     private lateinit var privacyPoliceItem: ConstraintLayout
     private lateinit var logoutButton: Button
@@ -39,10 +40,10 @@ class SettingsActivity : AppCompatActivity() {
         backArrow = findViewById(R.id.back_arrow)
         languageItem = findViewById(R.id.language_item)
         themItem = findViewById(R.id.theme_item)
-        pushNotificationItem = findViewById(R.id.push_notifications_switch)
-        emailNotificationItem = findViewById(R.id.email_notifications_switch)
-        dataSharingItem = findViewById(R.id.data_sharing_switch)
-        locationServiceItem = findViewById(R.id.location_services_switch)
+        pushNotificationSwitch = findViewById(R.id.push_notifications_switch)
+        emailNotificationSwitch = findViewById(R.id.email_notifications_switch)
+        dataSharingSwitch = findViewById(R.id.data_sharing_switch)
+        locationServiceSwitch = findViewById(R.id.location_services_switch)
         termsOfServiceItem = findViewById(R.id.terms_of_service_item)
         privacyPoliceItem = findViewById(R.id.privacy_policy_item)
         logoutButton = findViewById(R.id.logout_button)
@@ -60,21 +61,39 @@ class SettingsActivity : AppCompatActivity() {
             Toast.makeText(this, "Theme settings clicked", Toast.LENGTH_SHORT).show()
         }
 
-        pushNotificationItem.setOnClickListener {
-            Toast.makeText(this, "Push Notifications clicked", Toast.LENGTH_SHORT).show()
+        pushNotificationSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Toast.makeText(this, "Push Notifications: ON", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Push Notifications: OFF", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        emailNotificationItem.setOnClickListener {
-            Toast.makeText(this, "Email Notifications clicked", Toast.LENGTH_SHORT).show()
+
+        emailNotificationSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Toast.makeText(this, "Email Notifications: ON", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Email Notifications: OFF", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        dataSharingItem.setOnClickListener {
-            Toast.makeText(this, "Data Sharing clicked", Toast.LENGTH_SHORT).show()
+        dataSharingSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Toast.makeText(this, "Data Sharing: ON", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Data Sharing: OFF", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        locationServiceItem.setOnClickListener {
-            Toast.makeText(this, "Location Services clicked", Toast.LENGTH_SHORT).show()
+        locationServiceSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Toast.makeText(this, "Location Services: ON", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Location Services: OFF", Toast.LENGTH_SHORT).show()
+            }
         }
+
 
         termsOfServiceItem.setOnClickListener {
             Toast.makeText(this, "Terms of Service clicked", Toast.LENGTH_SHORT).show()
