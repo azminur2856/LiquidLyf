@@ -130,8 +130,8 @@ class SettingsActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_requests -> {
-                    val intent = Intent(this, RequestsActivity::class.java)
-                    startActivity(intent)
+//                    val intent = Intent(this, RequestsActivity::class.java)
+//                    startActivity(intent)
                     true
                 }
                 R.id.nav_profile -> {

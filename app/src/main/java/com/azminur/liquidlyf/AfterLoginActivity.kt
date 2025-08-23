@@ -35,7 +35,7 @@ class AfterLoginActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_requests -> {
-                    // Replace fragment requests
+                    replaceFragment(RequestsFragment())
                     true
                 }
                 R.id.nav_profile -> {
