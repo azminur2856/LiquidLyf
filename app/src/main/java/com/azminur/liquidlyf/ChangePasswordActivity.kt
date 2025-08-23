@@ -43,8 +43,9 @@ class ChangePasswordActivity : AppCompatActivity() {
 
             android.os.Handler().postDelayed({
                 progressBar.visibility = View.GONE
-                val intent = Intent(this, ProfileActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this, AfterLoginActivity::class.java)
+//                startActivity(intent)
+                finish()
             }, 1000)
         }
     }

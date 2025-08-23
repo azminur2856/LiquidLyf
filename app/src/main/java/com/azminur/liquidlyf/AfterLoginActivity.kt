@@ -39,7 +39,7 @@ class AfterLoginActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_profile -> {
-                    // Replace fragment profile
+                    replaceFragment(ProfileFragment())
                     true
                 }
                 R.id.nav_settings -> {

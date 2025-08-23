@@ -135,8 +135,8 @@ class SettingsActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
+//                    val intent = Intent(this, ProfileActivity::class.java)
+//                    startActivity(intent)
                     true
                 }
                 R.id.nav_settings -> {

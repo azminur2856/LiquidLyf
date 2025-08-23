@@ -101,6 +101,7 @@ class RequestBloodActivity : AppCompatActivity(), OnMapReadyCallback {
                 progressBar.visibility = View.GONE
 //                val intent = Intent(this, AfterLoginActivity::class.java)
 //                startActivity(intent)
+                finish()
             }, 1000)
         }
     }
