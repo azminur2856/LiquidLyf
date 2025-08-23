@@ -3,6 +3,7 @@ package com.azminur.liquidlyf
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +16,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
 class DashboardFragment : Fragment() {
 
+    private lateinit var profileImage: ImageView
+    private lateinit var notification: ImageView
     private lateinit var availabilitySwitch: Switch
     private lateinit var availabilityText: TextView
     private lateinit var incomingRequestsRecyclerView: RecyclerView
@@ -36,11 +40,22 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        profileImage = view.findViewById(R.id.profile_image)
+        notification = view.findViewById(R.id.notification_bell)
         availabilitySwitch = view.findViewById(R.id.availability_switch)
         availabilityText = view.findViewById(R.id.availability_text)
         incomingRequestsRecyclerView = view.findViewById(R.id.incoming_requests_recycler_view)
         recentActivityRecyclerView = view.findViewById(R.id.recent_activity_recycler_view)
         requestMaterialButton = view.findViewById(R.id.request_blood_fab)
+
+        profileImage.setOnClickListener {
+            val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation_bar)
+            bottomNav.selectedItemId = R.id.nav_profile
+        }
+
+        notification.setOnClickListener {
+            Toast.makeText(requireContext(), "Notification clicked!", Toast.LENGTH_SHORT).show()
+        }
 
         setupIncomingRequestsRecyclerView()
         setupRecentActivityRecyclerView()
