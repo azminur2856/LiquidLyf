@@ -23,7 +23,6 @@ class AfterLoginActivity : AppCompatActivity() {
         }
         bottomNavigationView = findViewById(R.id.bottom_navigation_bar)
 
-        // Set the initial fragment to be displayed
         if (savedInstanceState == null) {
             replaceFragment(DashboardFragment())
         }
@@ -43,7 +42,7 @@ class AfterLoginActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_settings -> {
-                    // Replace fragment settings
+                    replaceFragment(SettingsFragment())
                     true
                 }
                 else -> false

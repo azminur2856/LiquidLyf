@@ -37,7 +37,6 @@ class ChangePasswordActivity : AppCompatActivity() {
         }
 
         saveChangesButton.setOnClickListener {
-            // TODO: Implement logic to validate the current password and update the password.
             Toast.makeText(this, "Password changed successfully!", Toast.LENGTH_SHORT).show()
             progressBar.visibility = View.VISIBLE
 

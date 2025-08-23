@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         val isLoggedIn = sharedPref.getBoolean("is_logged_in", false)
 
         if (isLoggedIn) {
-            // Go straight to dashboard
+            // Go straight to afterloginactivity
             startActivity(Intent(this, AfterLoginActivity::class.java))
             finish() // Don't show MainActivity
             return
