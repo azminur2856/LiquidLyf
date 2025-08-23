@@ -8,60 +8,36 @@ With a clean interface, smart matching system, and location-based search, Liquid
 ## 📱 App Screenshots
 
 ### Main Activities
-- **Main Activity**  
-  ![Main Activity](images/MainActivity.jpg)  
-  Entry point of the app, allowing users to either register or log in.
+<p align="center">
+  <img src="images/MainActivity.jpg" alt="Main Activity" width="30%"/>
+  <img src="images/LoginActivity.jpg" alt="Login Activity" width="30%"/>
+  <img src="images/RegisterActivity.jpg" alt="Register Activity" width="30%"/>
+</p>
 
-- **Login Activity**  
-  ![Login Activity](images/LoginActivity.jpg)  
-  Enables registered users to log in with their phone number and password.
+<p align="center">
+  <img src="images/RequestBloodActivity.jpg" alt="Request Blood Activity" width="30%"/>
+  <img src="images/UpdateProfileActivity.jpg" alt="Update Profile Activity" width="30%"/>
+  <img src="images/ChangePasswordActivity.jpg" alt="Change Password Activity" width="30%"/>
+</p>
 
-- **Register Activity**  
-  ![Register Activity](images/RegisterActivity.jpg)  
-  New users can create an account by providing details and selecting their blood group.
-
-- **Request Blood Activity**  
-  ![Request Blood Activity](images/RequestBloodActivity.jpg)  
-  Provides a map and search bar to find hospitals and submit a blood request.
-
-- **Update Profile Activity**  
-  ![Update Profile Activity](images/UpdateProfileActivity.jpg)  
-  Allows users to update personal information like name, email, phone, and blood group.
-
-- **Change Password Activity**  
-  ![Change Password Activity](images/ChangePasswordActivity.jpg)  
-  Lets logged-in users change their password by entering current and new passwords.
-
-- **Forgot Password Phone Activity**  
-  ![Forgot Password Phone Activity](images/ForgotPasswordPhoneActivity.jpg)  
-  First step for resetting a forgotten password, requiring phone number input.
-
-- **Forgot Password Verify Activity**  
-  ![Forgot Password Verify Activity](images/ForgotPasswordVerifyActivity.jpg)  
-  Users enter a verification code sent to their phone to confirm identity.
-
-- **Forgot Password New Activity**  
-  ![Forgot Password New Activity](images/ForgotPasswordNewActivity.jpg)  
-  Allows setting a new password after successful verification.
+<p align="center">
+  <img src="images/ForgotPasswordPhoneActivity.jpg" alt="Forgot Password Phone Activity" width="30%"/>
+  <img src="images/ForgotPasswordVerifyActivity.jpg" alt="Forgot Password Verify Activity" width="30%"/>
+  <img src="images/ForgotPasswordNewActivity.jpg" alt="Forgot Password New Activity" width="30%"/>
+</p>
 
 ---
 
 ### Fragments
-- **Dashboard Fragment**  
-  ![Dashboard Fragment](images/DashboardFragment.jpg)  
-  Shows availability status, incoming requests, and recent activity.
+<p align="center">
+  <img src="images/DashboardFragment.jpg" alt="Dashboard Fragment" width="30%"/>
+  <img src="images/RequestsFragment.jpg" alt="Requests Fragment" width="30%"/>
+  <img src="images/ProfileFragment.jpg" alt="Profile Fragment" width="30%"/>
+</p>
 
-- **Requests Fragment**  
-  ![Requests Fragment](images/RequestsFragment.jpg)  
-  Displays a list of past blood requests with details.
-
-- **Profile Fragment**  
-  ![Profile Fragment](images/ProfileFragment.jpg)  
-  Shows user details with options to edit profile or change password.
-
-- **Settings Fragment**  
-  ![Settings Fragment](images/SettingsFragment.jpg)  
-  Contains notification, data sharing, location, and legal settings.
+<p align="center">
+  <img src="images/SettingsFragment.jpg" alt="Settings Fragment" width="30%"/>
+</p>
 
 ---
 
