@@ -99,8 +99,8 @@ class RequestBloodActivity : AppCompatActivity(), OnMapReadyCallback {
 
             android.os.Handler().postDelayed({
                 progressBar.visibility = View.GONE
-                val intent = Intent(this, DashboardActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this, AfterLoginActivity::class.java)
+//                startActivity(intent)
             }, 1000)
         }
     }

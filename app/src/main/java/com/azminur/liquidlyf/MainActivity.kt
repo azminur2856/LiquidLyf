@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         if (isLoggedIn) {
             // Go straight to dashboard
-            startActivity(Intent(this, DashboardActivity::class.java))
+            startActivity(Intent(this, AfterLoginActivity::class.java))
             finish() // Don't show MainActivity
             return
         }

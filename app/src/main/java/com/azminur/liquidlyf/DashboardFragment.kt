@@ -12,103 +12,64 @@ import android.widget.ImageView
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
-class DashboardActivity : AppCompatActivity() {
+class DashboardFragment : Fragment() {
 
     private lateinit var availabilitySwitch: Switch
     private lateinit var availabilityText: TextView
     private lateinit var incomingRequestsRecyclerView: RecyclerView
     private lateinit var recentActivityRecyclerView: RecyclerView
-
     private lateinit var requestMaterialButton: MaterialButton
-    private lateinit var bottomNavigationView: BottomNavigationView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+    }
 
-        availabilitySwitch = findViewById(R.id.availability_switch)
-        availabilityText = findViewById(R.id.availability_text)
-        incomingRequestsRecyclerView = findViewById(R.id.incoming_requests_recycler_view)
-        recentActivityRecyclerView = findViewById(R.id.recent_activity_recycler_view)
-        requestMaterialButton = findViewById(R.id.request_blood_fab)
-        bottomNavigationView = findViewById(R.id.bottom_navigation_bar)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        availabilitySwitch = view.findViewById(R.id.availability_switch)
+        availabilityText = view.findViewById(R.id.availability_text)
+        incomingRequestsRecyclerView = view.findViewById(R.id.incoming_requests_recycler_view)
+        recentActivityRecyclerView = view.findViewById(R.id.recent_activity_recycler_view)
+        requestMaterialButton = view.findViewById(R.id.request_blood_fab)
 
         setupIncomingRequestsRecyclerView()
         setupRecentActivityRecyclerView()
-
         setupAvailabilitySwitch()
 
         requestMaterialButton.setOnClickListener {
-            val intent = Intent(this, RequestBloodActivity::class.java)
+            val intent = Intent(requireActivity(), RequestBloodActivity::class.java)
             startActivity(intent)
         }
-
-        bottomNavigationView.selectedItemId = R.id.nav_dashboard
-
-        bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_dashboard -> {
-                    // Do nothing or handle re-selecting the dashboard
-                    true
-                }
-                R.id.nav_requests -> {
-                    val intent = Intent(this, RequestsActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.nav_profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.nav_settings -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                else -> false
-            }
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        bottomNavigationView.selectedItemId = R.id.nav_dashboard
     }
 
     private fun setupAvailabilitySwitch() {
         if (availabilitySwitch.isChecked) {
             availabilityText.text = "Ready to donate (Available)"
-            availabilityText.setTextColor(getColor(R.color.green_status))
+            availabilityText.setTextColor(resources.getColor(R.color.green_status, null))
         } else {
             availabilityText.text = "Not Ready to donate (Unavailable)"
-            availabilityText.setTextColor(getColor(R.color.red_status))
+            availabilityText.setTextColor(resources.getColor(R.color.red_status, null))
         }
 
         availabilitySwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                availabilityText.setTextColor(getColor(R.color.green_status))
+                availabilityText.setTextColor(resources.getColor(R.color.green_status, null))
                 availabilityText.text = "Ready to donate (Available)"
-                Toast.makeText(this, "Availability set to Available", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Availability set to Available", Toast.LENGTH_SHORT).show()
             } else {
-                availabilityText.setTextColor(getColor(R.color.red_status))
+                availabilityText.setTextColor(resources.getColor(R.color.red_status, null))
                 availabilityText.text = "Not Ready to donate (Unavailable)"
-                Toast.makeText(this, "Availability set to Not Available", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Availability set to Not Available", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -118,8 +79,8 @@ class DashboardActivity : AppCompatActivity() {
             IncomingRequest("Urgent: Blood Type O-", "10 miles away"),
             IncomingRequest("Urgent: Blood Type A+", "12 miles away")
         )
-        incomingRequestsRecyclerView.layoutManager = LinearLayoutManager(this)
-        incomingRequestsRecyclerView.adapter = IncomingRequestsAdapter(this, incomingRequests)
+        incomingRequestsRecyclerView.layoutManager = LinearLayoutManager(context)
+        incomingRequestsRecyclerView.adapter = IncomingRequestsAdapter(requireContext(), incomingRequests)
     }
 
     private fun setupRecentActivityRecyclerView() {
@@ -127,7 +88,7 @@ class DashboardActivity : AppCompatActivity() {
             RecentActivity("Blood Donation", "Donated to local hospital", "2 weeks ago", R.drawable.ic_check_circle),
             RecentActivity("Blood Request", "Request from local hospital", "1 month ago", R.drawable.ic_request_blood)
         )
-        recentActivityRecyclerView.layoutManager = LinearLayoutManager(this)
+        recentActivityRecyclerView.layoutManager = LinearLayoutManager(context)
         recentActivityRecyclerView.adapter = RecentActivityAdapter(recentActivities)
     }
 }

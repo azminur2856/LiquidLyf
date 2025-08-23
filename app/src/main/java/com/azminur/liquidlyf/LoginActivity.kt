@@ -69,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
 
                 android.os.Handler().postDelayed({
                     progressBar.visibility = View.GONE
-                    val intent = Intent(this, DashboardActivity::class.java)
+                    val intent = Intent(this, AfterLoginActivity::class.java)
                     startActivity(intent)
                     finish() // Prevent going back to LoginActivity
                 }, 1000)

@@ -125,8 +125,8 @@ class SettingsActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_dashboard -> {
-                    val intent = Intent(this, DashboardActivity::class.java)
-                    startActivity(intent)
+//                    val intent = Intent(this, DashboardActivity::class.java)
+//                    startActivity(intent)
                     true
                 }
                 R.id.nav_requests -> {
