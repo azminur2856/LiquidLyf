@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/rounded_edittext_background">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Donor Information"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/donor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Donor Name: "
+        android:textSize="16sp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/donor_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Phone: "
+        android:textSize="16sp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/donor_blood_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Blood Group: "
+        android:textSize="16sp"
+        android:textColor="@color/black" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/call_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:backgroundTint="@color/blue_button"
+        app:icon="@drawable/ic_phone_symbol"
+        app:iconTint="@color/white"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        style="@style/Widget.Material3.Button" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:textColor="@color/red_button"
+            android:backgroundTint="@color/white"
+            style="?attr/materialButtonOutlinedStyle"
+            app:strokeColor="@color/red_button"
+            app:strokeWidth="1dp"
+            android:layout_marginEnd="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/complete_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Complete"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green_status"
+            style="@style/Widget.Material3.Button"/>
+    </LinearLayout>
+</LinearLayout>

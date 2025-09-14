@@ -66,7 +66,7 @@ class RegisterActivity : AppCompatActivity() {
 
             android.os.Handler().postDelayed({
                 progressBar.visibility = View.GONE
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this, RegisterVerifyActivity::class.java)
                 startActivity(intent)
             }, 2000)
         }
