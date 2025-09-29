@@ -36,29 +36,29 @@
         app:layout_constraintTop_toBottomOf="@+id/top_illustration" />
 
     <TextView
-        android:id="@+id/phone_number_label"
+        android:id="@+id/email_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/phone_number"
+        android:text="@string/email"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
 
     <EditText
-        android:id="@+id/phone_number_input"
+        android:id="@+id/email_input"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_edittext_background"
-        android:hint="@string/enter_your_phone_number"
-        android:inputType="phone"
+        android:hint="@string/enter_your_email"
+        android:inputType="textEmailAddress"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number_label" />
+        app:layout_constraintTop_toBottomOf="@+id/email_label" />
 
     <TextView
         android:id="@+id/password_label"
@@ -69,7 +69,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number_input" />
+        app:layout_constraintTop_toBottomOf="@+id/email_input" />
 
     <EditText
         android:id="@+id/password_input"
@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/remember_phone_number"
+        android:text="@string/remember_email"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgot_password_link" />

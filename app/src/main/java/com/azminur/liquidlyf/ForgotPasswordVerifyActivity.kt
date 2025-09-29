@@ -44,15 +44,6 @@ class ForgotPasswordVerifyActivity : AppCompatActivity() {
 //        }
 
         backArrow = findViewById(R.id.back_arrow)
-        otp1 = findViewById(R.id.otp1)
-        otp2 = findViewById(R.id.otp2)
-        otp3 = findViewById(R.id.otp3)
-        otp4 = findViewById(R.id.otp4)
-        otp5 = findViewById(R.id.otp5)
-        otp6 = findViewById(R.id.otp6)
-        resendCodeLink = findViewById(R.id.resend_code_link)
-        countdownText = findViewById(R.id.resend_time_countdown)
-        verifyButton = findViewById(R.id.verify_code_button)
         progressBar = findViewById(R.id.progress_bar)
 
         val otpFields = listOf(otp1, otp2, otp3, otp4, otp5, otp6)
@@ -89,7 +80,6 @@ class ForgotPasswordVerifyActivity : AppCompatActivity() {
 
                 android.os.Handler().postDelayed({
                     progressBar.visibility = View.GONE
-                    val intent = Intent(this, ForgotPasswordNewActivity::class.java)
                     startActivity(intent)
                 }, 1000)
             }

@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LiquidLyf">
         <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_forgot_password"
+            android:exported="false" />
+        <activity
             android:name=".RegisterVerifyActivity"
             android:exported="false" />
         <activity

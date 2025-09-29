@@ -9,7 +9,6 @@
     <string name="enter_your_full_name">Enter your full name</string>
     <string name="phone_number">Phone number</string>
     <string name="enter_your_phone_number">Enter your phone number</string>
-    <string name="email_optional">Email (optional)</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="blood_group">Blood group</string>
     <string name="password">Password</string>
@@ -20,10 +19,10 @@
     <string name="already_have_an_account_sign_in">Already have an account? Sign in</string>
     <string name="welcome_back">Welcome back</string>
     <string name="forgot_password">Forgot password?</string>
-    <string name="remember_phone_number">Remember phone number</string>
+    <string name="remember_email">Remember email</string>
     <string name="log_in">Log in</string>
     <string name="reset_password">Reset Password</string>
-    <string name="send_code">Send Code</string>
+    <string name="send_link">Send Reset Link</string>
     <string name="resend_code">Resend code</string>
     <string name="verify_code">Verify Code</string>
     <string name="set_a_new_password">Set a new password</string>
@@ -69,6 +68,9 @@
     <string name="terms_of_service">Terms of Service</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="logout">Logout</string>
+    <string name="registration_complete_message">Your account has been successfully created. Please check your email to verify your account before logging in.</string>
+    <string name="password_reset_sent_message">A password reset link has been sent to your registered email address.</string>
+    <string name="go_to_email_app">Open Email App</string>
     <!--Blood Groups Array-->
     <string-array name="blood_groups">
         <item>Select your blood group</item>
